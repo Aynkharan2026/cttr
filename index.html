@@ -13,9 +13,7 @@
 <title>CTTR — Canada Trenton Tamil Radio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap');
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html, body {
     height: 100%;
     overflow: hidden;
@@ -26,7 +24,6 @@
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-
   .app {
     display: flex;
     flex-direction: column;
@@ -38,8 +35,6 @@
     cursor: pointer;
     padding: 20px;
   }
-
-  /* Animated background gradient */
   .bg {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -47,12 +42,9 @@
     z-index: 0;
     transition: background 0.8s ease;
   }
-
   .bg.playing {
     background: radial-gradient(ellipse at center, #3d2b5e 0%, #1a0a2e 40%, #0d0518 100%);
   }
-
-  /* Radio wave animation rings */
   .waves {
     position: absolute;
     top: 50%;
@@ -61,7 +53,6 @@
     z-index: 1;
     pointer-events: none;
   }
-
   .wave {
     position: absolute;
     border: 2px solid rgba(212, 175, 55, 0.15);
@@ -70,23 +61,18 @@
     transform: translate(-50%, -50%);
     opacity: 0;
   }
-
   .playing .wave {
     animation: pulse 3s ease-out infinite;
   }
-
   .wave:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
   .wave:nth-child(2) { width: 400px; height: 400px; animation-delay: 0.5s; }
   .wave:nth-child(3) { width: 500px; height: 500px; animation-delay: 1s; }
   .wave:nth-child(4) { width: 600px; height: 600px; animation-delay: 1.5s; }
   .wave:nth-child(5) { width: 700px; height: 700px; animation-delay: 2s; }
-
   @keyframes pulse {
     0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.8); }
     100% { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
   }
-
-  /* Logo */
   .logo-container {
     position: relative;
     z-index: 2;
@@ -94,11 +80,9 @@
     height: min(280px, 70vw);
     transition: transform 0.3s ease;
   }
-
   .logo-container:active {
     transform: scale(0.95);
   }
-
   .logo-container img {
     width: 100%;
     height: 100%;
@@ -107,12 +91,9 @@
     filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.3));
     transition: filter 0.5s ease;
   }
-
   .playing .logo-container img {
     filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.6));
   }
-
-  /* Glow ring around logo when playing */
   .glow-ring {
     position: absolute;
     top: -8px; left: -8px; right: -8px; bottom: -8px;
@@ -120,26 +101,21 @@
     border: 3px solid transparent;
     transition: border-color 0.5s ease;
   }
-
   .playing .glow-ring {
     border-color: rgba(212, 175, 55, 0.5);
     animation: glow-rotate 4s linear infinite;
   }
-
   @keyframes glow-rotate {
     0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1); }
     50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 30px rgba(212, 175, 55, 0.2); }
     100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1); }
   }
-
-  /* Status text */
   .status {
     position: relative;
     z-index: 2;
     margin-top: 32px;
     text-align: center;
   }
-
   .station-name {
     font-size: 18px;
     font-weight: 700;
@@ -148,23 +124,19 @@
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-
   .station-name-tamil {
     font-size: 16px;
     color: rgba(212, 175, 55, 0.7);
     margin-bottom: 16px;
   }
-
   .play-status {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.5);
     transition: color 0.3s ease;
   }
-
   .playing .play-status {
     color: rgba(255, 255, 255, 0.8);
   }
-
   .now-playing {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.4);
@@ -174,8 +146,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
-  /* Equalizer bars */
   .equalizer {
     display: flex;
     align-items: flex-end;
@@ -186,18 +156,15 @@
     opacity: 0;
     transition: opacity 0.5s ease;
   }
-
   .playing .equalizer {
     opacity: 1;
   }
-
   .eq-bar {
     width: 4px;
     background: #d4af37;
     border-radius: 2px;
     animation: eq 1s ease-in-out infinite;
   }
-
   .eq-bar:nth-child(1) { height: 8px; animation-delay: 0s; }
   .eq-bar:nth-child(2) { height: 16px; animation-delay: 0.1s; }
   .eq-bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
@@ -205,13 +172,10 @@
   .eq-bar:nth-child(5) { height: 10px; animation-delay: 0.3s; }
   .eq-bar:nth-child(6) { height: 18px; animation-delay: 0.05s; }
   .eq-bar:nth-child(7) { height: 14px; animation-delay: 0.25s; }
-
   @keyframes eq {
     0%, 100% { transform: scaleY(0.3); }
     50% { transform: scaleY(1); }
   }
-
-  /* Install prompt */
   .install-hint {
     position: fixed;
     bottom: 20px;
@@ -222,8 +186,6 @@
     z-index: 3;
     text-align: center;
   }
-
-  /* Loading spinner */
   .loading {
     display: none;
     width: 24px;
@@ -234,19 +196,15 @@
     animation: spin 0.8s linear infinite;
     margin-top: 16px;
   }
-
   .buffering .loading { display: block; }
   .buffering .equalizer { display: none; }
-
   @keyframes spin {
     to { transform: rotate(360deg); }
   }
 </style>
 </head>
 <body>
-
 <div class="bg" id="bg"></div>
-
 <div class="app" id="app" onclick="togglePlay()">
   <div class="waves" id="waves">
     <div class="wave"></div>
@@ -255,12 +213,10 @@
     <div class="wave"></div>
     <div class="wave"></div>
   </div>
-
   <div class="logo-container">
     <div class="glow-ring"></div>
     <img src="logo.jpg" alt="CTTR Logo" draggable="false">
   </div>
-
   <div class="status">
     <div class="station-name">CTTR</div>
     <div class="station-name-tamil">கனடா ரெண்ரன் தமிழ் வானொலி</div>
@@ -278,15 +234,12 @@
     <div class="loading" id="loading"></div>
   </div>
 </div>
-
 <div class="install-hint" id="installHint">
   Add to Home Screen for the full experience
 </div>
-
 <audio id="radio" preload="none">
   <source src="https://ec3.yesstreaming.net:1780/stream" type="audio/mpeg">
 </audio>
-
 <script>
   const audio = document.getElementById('radio');
   const app = document.getElementById('app');
@@ -295,9 +248,31 @@
   const nowPlaying = document.getElementById('nowPlaying');
   const loading = document.getElementById('loading');
   let isPlaying = false;
+  let isMuted = false;
   let metadataInterval = null;
 
+  function startStream() {
+    audio.src = 'https://ec3.yesstreaming.net:1780/stream';
+    app.classList.add('buffering');
+    playStatus.textContent = 'Connecting...';
+    return audio.play().then(() => {
+      isPlaying = true;
+      app.classList.remove('buffering');
+      app.classList.add('playing');
+      bg.classList.add('playing');
+      playStatus.textContent = audio.muted ? 'Tap for sound' : 'Live';
+      fetchMetadata();
+      if (!metadataInterval) metadataInterval = setInterval(fetchMetadata, 15000);
+    });
+  }
+
   function togglePlay() {
+    if (isPlaying && audio.muted) {
+      audio.muted = false;
+      isMuted = false;
+      playStatus.textContent = 'Live';
+      return;
+    }
     if (isPlaying) {
       audio.pause();
       audio.src = '';
@@ -306,23 +281,12 @@
       bg.classList.remove('playing');
       playStatus.textContent = 'Tap to listen';
       nowPlaying.textContent = '';
-      if (metadataInterval) clearInterval(metadataInterval);
+      if (metadataInterval) { clearInterval(metadataInterval); metadataInterval = null; }
     } else {
-      audio.src = 'https://ec3.yesstreaming.net:1780/stream';
-      app.classList.add('buffering');
-      playStatus.textContent = 'Connecting...';
-      audio.play().then(() => {
-        isPlaying = true;
-        app.classList.remove('buffering');
-        app.classList.add('playing');
-        bg.classList.add('playing');
-        playStatus.textContent = 'Live';
-        fetchMetadata();
-        metadataInterval = setInterval(fetchMetadata, 15000);
-      }).catch(err => {
+      audio.muted = false;
+      startStream().catch(() => {
         app.classList.remove('buffering');
         playStatus.textContent = 'Tap to listen';
-        console.error('Play failed:', err);
       });
     }
   }
@@ -336,7 +300,7 @@
 
   audio.addEventListener('playing', () => {
     app.classList.remove('buffering');
-    if (isPlaying) playStatus.textContent = 'Live';
+    if (isPlaying) playStatus.textContent = audio.muted ? 'Tap for sound' : 'Live';
   });
 
   audio.addEventListener('error', () => {
@@ -358,12 +322,9 @@
           nowPlaying.textContent = '♪ ' + source.title;
         }
       }
-    } catch (e) {
-      // Metadata fetch failed silently — stream still plays
-    }
+    } catch (e) {}
   }
 
-  // Media Session API for lock screen controls
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: 'Canada Trenton Tamil Radio',
@@ -378,16 +339,26 @@
     navigator.mediaSession.setActionHandler('pause', togglePlay);
   }
 
-  // Hide install hint after 5 seconds
+  window.addEventListener('load', () => {
+    audio.muted = false;
+    startStream().catch(() => {
+      audio.muted = true;
+      isMuted = true;
+      startStream().catch(() => {
+        app.classList.remove('buffering');
+        playStatus.textContent = 'Tap to listen';
+        audio.src = '';
+      });
+    });
+  });
+
   setTimeout(() => {
     document.getElementById('installHint').style.opacity = '0';
   }, 5000);
 
-  // Register service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
   }
 </script>
-
 </body>
 </html>
