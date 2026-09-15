@@ -312,7 +312,7 @@
 
   async function fetchMetadata() {
     try {
-      const resp = await fetch('https://cors1.yesstreaming.net/https://ec3.yesstreaming.net:1780/status-json.xsl');
+      const resp = await fetch('http://77.42.6.218:8000/status-json.xsl');
       const data = await resp.json();
       if (data && data.icestats && data.icestats.source) {
         const source = Array.isArray(data.icestats.source)
