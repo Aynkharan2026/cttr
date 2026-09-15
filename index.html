@@ -238,7 +238,7 @@
   Add to Home Screen for the full experience
 </div>
 <audio id="radio" preload="none">
-  <source src="http://77.42.6.218:8000/stream" type="audio/mpeg">
+  <source src="https://ec3.yesstreaming.net:1780/stream" type="audio/mpeg">
 </audio>
 <script>
   const audio = document.getElementById('radio');
@@ -252,7 +252,7 @@
   let metadataInterval = null;
 
   function startStream() {
-    audio.src = 'http://77.42.6.218:8000/stream';
+    audio.src = 'https://ec3.yesstreaming.net:1780/stream';
     app.classList.add('buffering');
     playStatus.textContent = 'Connecting...';
     return audio.play().then(() => {
@@ -312,7 +312,7 @@
 
   async function fetchMetadata() {
     try {
-      const resp = await fetch('http://77.42.6.218:8000/status-json.xsl');
+      const resp = await fetch('https://cors1.yesstreaming.net/https://ec3.yesstreaming.net:1780/status-json.xsl');
       const data = await resp.json();
       if (data && data.icestats && data.icestats.source) {
         const source = Array.isArray(data.icestats.source)
