@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="CTTR">
-<meta name="description" content="Canada Trenton Tamil Radio — கனடா ரெண்ரன் தமிழ் வானொலி">
+<meta name="description" content="Canada Trenton Tamil Radio — கனடா றெண்றன் தமிழ் வானொலி">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>CTTR — Canada Trenton Tamil Radio</title>
@@ -219,7 +219,7 @@
   </div>
   <div class="status">
     <div class="station-name">CTTR</div>
-    <div class="station-name-tamil">கனடா ரெண்ரன் தமிழ் வானொலி</div>
+    <div class="station-name-tamil">கனடா றெண்றன் தமிழ் வானொலி</div>
     <div class="play-status" id="playStatus">Tap to listen</div>
     <div class="now-playing" id="nowPlaying"></div>
     <div class="equalizer">
@@ -238,7 +238,7 @@
   Add to Home Screen for the full experience
 </div>
 <audio id="radio" preload="none">
-  <source src="https://ec3.yesstreaming.net:1780/stream" type="audio/mpeg">
+  <source src="http://77.42.6.218:8000/stream" type="audio/mpeg">
 </audio>
 <script>
   const audio = document.getElementById('radio');
@@ -252,7 +252,7 @@
   let metadataInterval = null;
 
   function startStream() {
-    audio.src = 'https://ec3.yesstreaming.net:1780/stream';
+    audio.src = 'http://77.42.6.218:8000/stream';
     app.classList.add('buffering');
     playStatus.textContent = 'Connecting...';
     return audio.play().then(() => {
